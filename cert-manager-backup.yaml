@@ -1,0 +1,80 @@
+apiVersion: v1
+items:
+  - apiVersion: cert-manager.io/v1alpha2
+    kind: Issuer
+    metadata:
+      creationTimestamp: "2019-11-26T21:13:29Z"
+      generation: 2
+      labels:
+        app: rancher
+        chart: rancher-2.3.4
+        heritage: Tiller
+        release: rancher
+      name: rancher
+      namespace: cattle-system
+      resourceVersion: "20792551"
+      selfLink: /apis/cert-manager.io/v1alpha2/namespaces/cattle-system/issuers/rancher
+      uid: 1ac689dd-7547-40b6-9faa-074164b09220
+    spec:
+      acme:
+        email: it.mgmt@gpsinsight.com
+        http01: {}
+        privateKeySecretRef:
+          name: letsencrypt-production
+        server: https://acme-v02.api.letsencrypt.org/directory
+    status:
+      acme:
+        lastRegisteredEmail: it.mgmt@gpsinsight.com
+        uri: https://acme-v02.api.letsencrypt.org/acme/acct/72600803
+      conditions:
+        - lastTransitionTime: "2019-11-26T21:13:30Z"
+          message: The ACME account was registered with the ACME server
+          reason: ACMEAccountRegistered
+          status: "True"
+          type: Ready
+  - apiVersion: cert-manager.io/v1alpha2
+    kind: Certificate
+    metadata:
+      creationTimestamp: "2019-11-26T21:14:18Z"
+      generation: 7
+      labels:
+        app: rancher
+        chart: rancher-2.3.4
+        heritage: Tiller
+        release: rancher
+      name: tls-rancher-ingress
+      namespace: cattle-system
+      ownerReferences:
+        - apiVersion: extensions/v1beta1
+          blockOwnerDeletion: true
+          controller: true
+          kind: Ingress
+          name: rancher
+          uid: d649891b-5738-4fd8-a27e-51ae9e1b408c
+      resourceVersion: "22531889"
+      selfLink: /apis/cert-manager.io/v1alpha2/namespaces/cattle-system/certificates/tls-rancher-ingress
+      uid: 8d9dc561-166c-491a-ac50-f52e05d7a12f
+    spec:
+      acme:
+        config:
+          - domains:
+              - rancher.gpsinsight.io
+            http01: {}
+      dnsNames:
+        - rancher.gpsinsight.io
+      issuerRef:
+        kind: Issuer
+        name: rancher
+      secretName: tls-rancher-ingress
+    status:
+      conditions:
+        - lastTransitionTime: "2019-11-26T21:42:25Z"
+          message: Certificate is up to date and has not expired
+          reason: Ready
+          status: "True"
+          type: Ready
+      notAfter: "2020-04-24T19:42:52Z"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
