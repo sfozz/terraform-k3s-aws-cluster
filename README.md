@@ -40,6 +40,7 @@ This module supports creating a k3s cluster with a postgres backend in AWS. It a
 | db\_instance\_type | n/a | `string` | `"db.r5.large"` | no |
 | db\_name | Name of database to create in RDS | `string` | `null` | no |
 | db\_node\_count | Number of RDS database instances to launch | `number` | `1` | no |
+| db\_parameter\_group\_family | engine family for parameter group | `string` | `"aurora-postgresql10"` | no |
 | db\_pass | Password for RDS user | `string` | n/a | yes |
 | db\_user | Username for RDS database | `string` | n/a | yes |
 | domain | n/a | `string` | `"eng.rancher.space"` | no |

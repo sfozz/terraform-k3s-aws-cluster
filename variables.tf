@@ -306,3 +306,10 @@ variable "db_allow_major_version_upgrade" {
   type        = bool
   description = "Enable to allow major engine version upgrades when changing engine versions."
 }
+
+variable "db_parameter_group_family" {
+  default     = "aurora-postgresql10"
+  type        = string
+  description = "engine family for parameter group"
+
+}

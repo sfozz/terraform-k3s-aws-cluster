@@ -47,6 +47,7 @@ locals {
   db_name                        = var.db_name != null ? var.db_name : var.name
   db_engine_version              = var.db_engine_version
   db_allow_major_version_upgrade = var.db_allow_major_version_upgrade
+  db_parameter_group_family      = var.db_parameter_group_family
   db_node_count                  = var.k3s_datastore_endpoint != "sqlite" ? var.db_node_count : 0
   k3s_datastore_cafile           = var.k3s_datastore_cafile
   k3s_datastore_endpoint         = var.k3s_datastore_endpoint == "sqlite" ? null : "postgres://${local.db_user}:${local.db_pass}@${aws_rds_cluster.k3s.0.endpoint}/${local.db_name}"

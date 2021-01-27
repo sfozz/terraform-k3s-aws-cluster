@@ -209,13 +209,17 @@ resource "aws_db_subnet_group" "private" {
 resource "aws_rds_cluster_parameter_group" "k3s" {
   count       = local.deploy_rds
   name_prefix = "${local.name}-"
-  description = "Force SSL for aurora-postgresql10.7"
-  family      = "aurora-postgresql10"
+  description = "Force SSL for aurora-postgresql"
+  family      = local.db_parameter_group_family
 
   parameter {
     name         = "rds.force_ssl"
     value        = "1"
     apply_method = "pending-reboot"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
