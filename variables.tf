@@ -313,3 +313,15 @@ variable "db_parameter_group_family" {
   description = "engine family for parameter group"
 
 }
+
+variable "server_volume_type" {
+  default     = "gp3"
+  description = "Volume Type for K3S Server nodes"
+  type        = string
+}
+
+variable "agent_volume_type" {
+  default     = "gp3"
+  description = "Volume Type for K3S Agent nodes"
+  type        = string
+}

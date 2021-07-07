@@ -31,7 +31,9 @@ locals {
   install_k3s_version            = var.install_k3s_version
   k3s_cluster_secret             = var.k3s_cluster_secret != null ? var.k3s_cluster_secret : random_password.k3s_cluster_secret.result
   server_instance_type           = var.server_instance_type
+  server_volume_type             = var.server_volume_type
   agent_instance_type            = var.agent_instance_type
+  agent_volume_type              = var.agent_volume_type
   agent_image_id                 = var.agent_image_id != null ? var.agent_image_id : data.aws_ami.ubuntu.id
   server_image_id                = var.server_image_id != null ? var.server_image_id : data.aws_ami.ubuntu.id
   aws_azs                        = var.aws_azs

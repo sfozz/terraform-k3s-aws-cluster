@@ -103,7 +103,7 @@ resource "aws_launch_template" "k3s_server" {
 
     ebs {
       encrypted   = true
-      volume_type = "gp2"
+      volume_type = local.server_volume_type
       volume_size = "50"
     }
   }
@@ -137,7 +137,7 @@ resource "aws_launch_template" "k3s_agent" {
 
     ebs {
       encrypted   = true
-      volume_type = "gp2"
+      volume_type = local.agent_volume_type
       volume_size = "50"
     }
   }
