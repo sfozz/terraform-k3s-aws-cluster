@@ -96,7 +96,7 @@ resource "aws_launch_template" "k3s_server" {
   name_prefix   = "${local.name}-server"
   image_id      = local.server_image_id
   instance_type = local.server_instance_type
-  user_data     = data.template_cloudinit_config.k3s_server.rendered
+  user_data     = data.cloudinit_config.k3s_server.rendered
 
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -130,7 +130,7 @@ resource "aws_launch_template" "k3s_agent" {
   name_prefix   = "${local.name}-agent"
   image_id      = local.agent_image_id
   instance_type = local.agent_instance_type
-  user_data     = data.template_cloudinit_config.k3s_agent.rendered
+  user_data     = data.cloudinit_config.k3s_agent.rendered
 
   block_device_mappings {
     device_name = "/dev/sda1"

@@ -38,7 +38,7 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-data "template_cloudinit_config" "k3s_server" {
+data "cloudinit_config" "k3s_server" {
   gzip          = true
   base64_encode = true
 
@@ -70,7 +70,7 @@ data "template_cloudinit_config" "k3s_server" {
   }
 }
 
-data "template_cloudinit_config" "k3s_agent" {
+data "cloudinit_config" "k3s_agent" {
   gzip          = true
   base64_encode = true
 
