@@ -1,5 +1,5 @@
 output "rancher_admin_password" {
-  value     = local.install_rancher ? local.rancher_password : null
+  value     = local.install_rancher ? rancher2_bootstrap.admin.0.password : null
   sensitive = true
 }
 
