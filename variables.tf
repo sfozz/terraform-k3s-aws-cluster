@@ -162,7 +162,7 @@ variable "aws_azs" {
 }
 
 variable "db_instance_type" {
-  default = "db.r5.large"
+  default = "db.r6g.large"
 }
 
 variable "db_name" {
@@ -182,7 +182,7 @@ variable "db_pass" {
 }
 
 variable "db_engine_version" {
-  default     = "10.11"
+  default     = "13.4"
   type        = string
   description = "Engine Version for RDS Database"
 }
@@ -200,7 +200,7 @@ variable "public_subnets_cidr_blocks" {
 }
 
 variable "skip_final_snapshot" {
-  default     = true
+  default     = false
   type        = bool
   description = "Boolean that defines whether or not the final snapshot should be created on RDS cluster deletion"
 }
@@ -301,7 +301,7 @@ variable "db_allow_major_version_upgrade" {
 }
 
 variable "db_parameter_group_family" {
-  default     = "aurora-postgresql10"
+  default     = "aurora-postgresql13"
   type        = string
   description = "engine family for parameter group"
 
