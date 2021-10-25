@@ -22,7 +22,7 @@ variable "server_image_id" {
 }
 
 variable "ssh_keys" {
-  type        = list(any)
+  type        = list(string)
   default     = []
   description = "SSH keys to inject into Rancher instances"
 }
