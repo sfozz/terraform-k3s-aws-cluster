@@ -1,6 +1,6 @@
 ### Terraform K3S AWS Cluster
 
-This module supports creating a k3s cluster with a postgres backend in AWS. It allows you to optionally install nginx-ingress, Rancher Server, and cert-manager, or import your K3S cluster into an existing Rancher Server.
+This module supports creating a k3s cluster with a postgres backend in AWS. It allows you to optionally install Rancher Server cert-manager, or import your K3S cluster into an existing Rancher Server.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -96,7 +96,6 @@ No modules.
 | <a name="input_extra_server_security_groups"></a> [extra\_server\_security\_groups](#input\_extra\_server\_security\_groups) | Additional security groups to attach to k3s server instances | `list(any)` | `[]` | no |
 | <a name="input_install_certmanager"></a> [install\_certmanager](#input\_install\_certmanager) | Boolean that defines whether or not to install Cert-Manager | `bool` | `false` | no |
 | <a name="input_install_k3s_version"></a> [install\_k3s\_version](#input\_install\_k3s\_version) | Version of K3S to install | `string` | `"1.19.4+k3s1"` | no |
-| <a name="input_install_nginx_ingress"></a> [install\_nginx\_ingress](#input\_install\_nginx\_ingress) | Boolean that defines whether or not to install nginx-ingress | `bool` | `false` | no |
 | <a name="input_install_rancher"></a> [install\_rancher](#input\_install\_rancher) | Boolean that defines whether or not to install Rancher | `bool` | `false` | no |
 | <a name="input_k3s_cluster_secret"></a> [k3s\_cluster\_secret](#input\_k3s\_cluster\_secret) | Override to set k3s cluster registration secret | `string` | `null` | no |
 | <a name="input_k3s_datastore_cafile"></a> [k3s\_datastore\_cafile](#input\_k3s\_datastore\_cafile) | Location to download RDS CA Bundle | `string` | `"/srv/rds-combined-ca-bundle.pem"` | no |

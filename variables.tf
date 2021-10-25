@@ -1,12 +1,11 @@
 variable "rancher_password" {
   type        = string
-  default     = ""
   description = "Password to set for admin user during bootstrap of Rancher Server"
 }
 
 variable "rancher_version" {
   type        = string
-  default     = "2.5.3"
+  default     = "2.6.1"
   description = "Version of Rancher to install"
 }
 
@@ -59,12 +58,12 @@ variable "r53_domain" {
 
 variable "server_instance_type" {
   type    = string
-  default = "m5.large"
+  default = "m6g.large"
 }
 
 variable "agent_instance_type" {
   type    = string
-  default = "m5.large"
+  default = "m6g.large"
 }
 
 variable "server_node_count" {
@@ -133,7 +132,7 @@ variable "private_subnets" {
 }
 
 variable "install_k3s_version" {
-  default     = "1.19.4+k3s1"
+  default     = "1.21.4+k3s1"
   type        = string
   description = "Version of K3S to install"
 }
@@ -210,12 +209,6 @@ variable "install_rancher" {
   default     = false
   type        = bool
   description = "Boolean that defines whether or not to install Rancher"
-}
-
-variable "install_nginx_ingress" {
-  default     = false
-  type        = bool
-  description = "Boolean that defines whether or not to install nginx-ingress"
 }
 
 variable "install_certmanager" {
