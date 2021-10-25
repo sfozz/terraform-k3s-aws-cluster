@@ -182,7 +182,7 @@ variable "db_pass" {
 }
 
 variable "db_engine_version" {
-  default     = "13.4"
+  default     = "13.3"
   type        = string
   description = "Engine Version for RDS Database"
 }
