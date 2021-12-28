@@ -1,5 +1,6 @@
 variable "rancher_password" {
   type        = string
+  default     = null
   description = "Password to set for admin user during bootstrap of Rancher Server"
 }
 
