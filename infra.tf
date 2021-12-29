@@ -113,6 +113,8 @@ resource "aws_launch_template" "k3s_server" {
     security_groups       = concat([aws_security_group.self.id, aws_security_group.database.id], var.extra_server_security_groups)
   }
 
+  key_name = var.aws_key_name
+
   tags = {
     Name = "${local.name}-server"
   }
@@ -146,6 +148,8 @@ resource "aws_launch_template" "k3s_agent" {
     delete_on_termination = true
     security_groups       = concat([aws_security_group.ingress.id, aws_security_group.self.id], var.extra_agent_security_groups)
   }
+
+  key_name = var.aws_key_name
 
   tags = {
     Name = "${local.name}-agent"

@@ -319,3 +319,8 @@ variable "agent_volume_type" {
   description = "Volume Type for K3S Agent nodes"
   type        = string
 }
+
+variable "aws_key_name" {
+  type    = string
+  default = null
+}
